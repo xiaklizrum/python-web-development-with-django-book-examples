@@ -1,0 +1,15 @@
+version: '3'
+services:
+  web:
+    image: gallery/python
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - PYTHONPATH=/var/www
+    working_dir: /var/www
+    command: python manage.py runserver 0.0.0.0:5000
+    ports:
+      - ${WEB_EXPOSE_PORT}:5000
+    volumes:
+      - .:/var/www:cached
