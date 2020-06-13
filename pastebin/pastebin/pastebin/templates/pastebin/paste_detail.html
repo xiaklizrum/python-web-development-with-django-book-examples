@@ -1,0 +1,22 @@
+{% extends 'pastebin/base.html' %}
+{% block title %}{{ object }}{% endblock %}
+{% block content %}
+    <h1>{{ object }}</h1>
+    <p>Syntax: {{ object.get_syntax_display }}<br/>
+        Date: {{ object.timestamp|date:"r" }}
+    </p>
+    <code>
+        <pre class="brush: {{ object.get_syntax_display|lower }}">{{ object.content }}</pre>
+    </code>
+    <link type="text/css" rel="stylesheet" href="/media/css/shCoreDefault.min.css">
+    <script src="/media/js/shCore.min.js"></script>
+    <script src="/media/js/shBrushPlain.min.js"></script>
+    <script src="/media/js/shBrushPython.min.js"></script>
+    <script src="/media/js/shBrushXml.min.js"></script>
+    <script src="/media/js/shBrushSql.min.js"></script>
+    <script src="/media/js/shBrushJScript.min.js"></script>
+    <script src="/media/js/shBrushCss.min.js"></script>
+    <script>
+        SyntaxHighlighter.all();
+    </script>
+{% endblock %}
