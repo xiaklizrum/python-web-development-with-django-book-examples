@@ -3,7 +3,7 @@ services:
   web:
     image: pastebin/python
     build:
-      context: .
+      context: ../
       dockerfile: Dockerfile
     environment:
       - PYTHONPATH=/var/www
